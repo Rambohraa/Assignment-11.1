@@ -1,0 +1,75 @@
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebdriverClass;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromedriverClass;
+
+
+
+public class CalculatePremium {
+
+	public static void main(String[] args) throws InterruptedException{
+		 System.setProperty("webdriverClass.chrome.driverClass","C:\\Selenium\\chromedriverClass.exe");
+	       WebdriverClass driverClassClass = new ChromedriverClass();
+	       
+	       
+	       //system.out.println("Created driverClass class reference.");
+	       
+	       driverClassClass.get("http://demo.guru99.com/insurance/v1/index.php");
+	     
+	       driverClassClass.manage().window().maximize();
+	       
+	       WebElement email = driverClassClass.findElement(By.id("email"));
+	       email.sendKeys("rambohra999@gmail.com",Keys.INSERT);
+	       
+	       WebElement password = driverClass.findElement(By.id("password"));
+	       password.sendKeys("Bands1710",Keys.INSERT);
+	       
+	       //login
+	       driverClass.findElement(By.name("submit")).click();
+	       
+	       //RequestQuationOption
+	       driverClass.findElement(By.id("ui-id-2")).click();
+	       driverClass.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+	       
+	       //radioBtn
+	       
+	       WebElement yesBtn= driverClass.findElement(By.cssSelector("input[id='quotation_windscreenrepair_t']"));
+	       Thread.sleep(3000);
+	       yesBtn.click();
+	       
+	       //Estimate Value
+	       WebElement EstimValue=driverClass.findElement(By.cssSelector("input[id='quotation_vehicle_attributes_value']"));
+	       Thread.sleep(3000);
+	       EstimValue.sendKeys("1000",Keys.INSERT);
+	       //System.out.println("Working1");
+	       
+	       
+	       //ParkingLoaction
+	       WebElement ParkLoc = driverClass.findElement(By.cssSelector("select#quotation_vehicle_attributes_parkinglocation option:nth-of-type(4)"));
+	       Thread.sleep(3000);	       ParkLoc.click();
+	       //System.out.println("Working2");
+	      
+	       
+	       //PremiumBtn
+	       WebElement premiumBtn= driverClass.findElement(By.cssSelector("input[value='Calculate Premium']"));
+	       Thread.sleep(3000);
+	       premiumBtn.click();
+	       
+	       //System.out.println("Working3");
+	       
+	       //resetBtn
+	       WebElement resetBtn= driverClass.findElement(By.cssSelector("input[id='resetquote']"));
+	       Thread.sleep(3000);
+	       resetBtn.click();
+	       
+	       //System.out.println("Working4");
+	       Thread.sleep(3000);
+	       driverClass.quit();
+	       
+	}
+
+}
